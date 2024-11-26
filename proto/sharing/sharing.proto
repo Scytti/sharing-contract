@@ -1,12 +1,9 @@
 // proto/sharing/sharing.proto
 
-// Версия ProtoBuf
 syntax = "proto3";
 
-// Текущий пакет - указывает пространство имен для сервиса и сообщений. Помогает избегать конфликтов имен.
 package sharing;
 
-// Настройки для генерации Go кода.
 option go_package = "gariaev.sharing.v1;sharingv1";
 
 // Sharing is service for managing tasks.
@@ -17,24 +14,20 @@ service Sharing {
   rpc Resulter(ResulterRequest) returns (ResulterResponce);
 }
 
-// Объект, который отправляется при вызове RPC-метода (ручки) Register.
 message PullerRequest {
   string ip = 1; // IP of the agent.
 }
 
-// Объект, который метод (ручка) вернёт.
 message PullerResponce {
   string imagePath = 1; // User ID of the registered user.
   string param = 2;
 }
 
-// То же самое для метода Login()
 message ResulterRequest {
-  string email = 1; // Email of the user to login.
-  string password = 2; // Password of the user to login.
-  int32 app_id = 3; // ID of the app to login to.
+  string status = 1; //
+  string result = 2; //
 }
 
 message ResulterResponce {
-  string token = 1; // Auth token of the logged in user.
+  string status = 1; //
 }
